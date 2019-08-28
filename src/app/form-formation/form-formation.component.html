@@ -1,0 +1,68 @@
+<mat-card style="width: 400px">
+  <div style="display: flex">
+    <h1>Formations</h1>
+    <button mat-button (click)="toggle()" style="margin-left: auto">Réduire/Agrandir</button>
+  </div>
+  <div *ngIf="expanded == true">
+    <form (ngSubmit)="onSubmit()" #expForm="ngForm">
+      <h3>Informations</h3>
+
+      <p>
+        <mat-form-field class="input-full-width">
+          <input matInput placeholder="Titre" [(ngModel)]="formation.title" name="title" #name="ngModel">
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field class="input-full-width">
+          <input matInput placeholder="Lieu" [(ngModel)]="formation.place" name="place" #name="ngModel">
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field class="input-full-width">
+          <input matInput placeholder="Date" [(ngModel)]="formation.date" name="date" #name="ngModel">
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field class="input-full-width">
+          <input matInput placeholder="Description" [(ngModel)]="formation.description" name="description"
+            #name="ngModel">
+        </mat-form-field>
+      </p>
+
+      <div style="display: flex">
+        <button mat-raised-button color="accent" style="margin-left: auto" type="button"
+          (click)="addFormation()">Ajouter une
+          formation</button>
+      </div>
+
+      <p style="display: flex">
+        <mat-list style="margin-left: auto; margin-right: auto">
+          <mat-list-item *ngFor="let i of formations.formation" style="display: flex">
+            <div class="list">
+              <h4 mat-line class="title">{{i.title}}</h4>
+              <div class="sublist">
+                <p mat-line> {{i.date}} </p>
+                <p mat-line> {{i.place}} </p>
+                <p mat-line> {{i.description}} </p>
+              </div>
+            </div>
+            <div style="margin-left: 20px">
+              <img src="assets/img/remove.svg" style="cursor: pointer" alt="supprimer" height="24px" width="24px"
+                (click)="delFormation(i)" />
+              <img src="assets/img/edit.svg" style="cursor: pointer; margin-left: 10px" alt="editer" height="24px"
+                width="24px" (click)="editFormation(i)" />
+            </div>
+          </mat-list-item>
+        </mat-list>
+      </p>
+
+      <div style="display: flex">
+        <button mat-raised-button style="background: #2e7d32; color: white; margin-left: auto; margin-right: auto"
+          type="submit">Enregistrer</button>
+      </div>
+    </form>
+  </div>
+</mat-card>

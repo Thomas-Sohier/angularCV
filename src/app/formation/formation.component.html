@@ -1,0 +1,12 @@
+<div *ngFor="let i of formations.formation">
+  <div name="ens1" class="exp">
+    <div style="display: flex">
+      <h3 class="title">{{i.title}}</h3>
+      <h4 class="title" style="margin-left: auto">{{i.date}}</h4>
+    </div>
+    <h4 class="subtitle">{{i.place}}</h4>
+    <div name="description" class="description">
+      {{i.description}}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+.level.empty {
+  background-color: #efefef;
+}
+
+.level {
+  line-height: 15px;
+  margin: 1px;
+  color: #efefef;
+  font-size: 10.1px;
+  font-weight: 700;
+  width: 15px;
+  height: 15px;
+  border: #4d8c94;
+  border-style: solid;
+  border-width: thin;
+  border-radius: 50%;
+  text-align: center;
+  background-color: #4d8c94
+}
+
+h4 {
+  margin-block-end: 0;
+  margin-block-start: 0;
+}
+
+h3 {
+  margin-block-end: 0;
+  margin-block-start: 0;
+}
+
+h2 {
+  color: #404040;
+  font-family: monospace;
+  font-size: 24px;
+}
+
+p {
+  margin-block-end: 0;
+  margin-block-start: 0;
+}

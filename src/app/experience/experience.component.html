@@ -1,0 +1,20 @@
+<div *ngFor="let i of experiences.experience">
+  <div name="exp1" class="exp">
+    <div style="display: flex">
+      <div *ngIf="i.img !== ''">
+        <img [src]="transform(i.img)" class="logo" alt="">
+      </div>
+      <div style="width: 100%">
+        <div style="display: flex">
+          <h3 class="title">{{i.job}}</h3>
+          <h4 class="title" style="margin-left: auto">{{i.date}}</h4>
+        </div>
+        <h4 class="subtitle">{{i.place}}, {{i.firm}}</h4>
+      </div>
+    </div>
+
+    <div name="description" class="description">
+      {{i.description}}
+    </div>
+  </div>
+</div>
