@@ -1,0 +1,199 @@
+<mat-card style="width: 400px">
+  <div style="display: flex">
+    <h1>Informations</h1>
+    <button mat-button (click)="toggle()" style="margin-left: auto">Réduire/Agrandir</button>
+  </div>
+  <div *ngIf="expanded == true">
+    <form (ngSubmit)="onSubmit()" #infoForm="ngForm">
+      <h3>Entête</h3>
+      <p>
+        <mat-form-field class="input-full-width">
+          <input matInput placeholder="Nom" [(ngModel)]="information.name" name="name" #name="ngModel">
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field class="input-full-width">
+          <input matInput placeholder="Prénom" [(ngModel)]="information.surname" name="surname" #name="ngModel">
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field class="input-full-width">
+          <input matInput placeholder="Titre CV" [(ngModel)]="information.title" name="title" #name="ngModel">
+        </mat-form-field>
+      </p>
+
+      <p style="margin-bottom: 30px">
+        <input type="file" name="file" id="file" (change)="handleFileSelect($event)" />
+      </p>
+
+
+      <h3>Infos personnelles</h3>
+
+      <div style="display: flex; width: 100%">
+        <p>
+          <mat-form-field style="width: 100px; margin-right: 20px">
+            <input matInput placeholder="Emoji" [(ngModel)]="infos.emoji" name="infosEmoji" #name="ngModel">
+          </mat-form-field>
+        </p>
+
+        <p class="input-full-width">
+          <mat-form-field class="input-full-width">
+            <input matInput placeholder="Titre" [(ngModel)]="infos.title" name="infosTitle" #name="ngModel">
+          </mat-form-field>
+        </p>
+      </div>
+
+      <p>
+        <mat-form-field class="input-full-width">
+          <input matInput placeholder="Information" [(ngModel)]="infos.text" name="infoText" #name="ngModel">
+        </mat-form-field>
+      </p>
+
+      <div class="flex">
+        <button mat-raised-button color="accent" type='button' class="addButton" (click)="addInfo()">Ajouter
+          information</button>
+      </div>
+
+      <p class="flex">
+        <mat-list>
+          <mat-list-item *ngFor="let i of information.infos" style="display: flex">
+            <div class="list">
+              <div class="title" style="display: flex">
+                <p>{{i.emoji}}</p>
+                <h4 mat-line class="title">{{i.title}}</h4>
+              </div>
+
+              <div class="sublist">
+                <p mat-line> {{i.text}} </p>
+              </div>
+
+            </div>
+            <div style="margin-left: 20px">
+              <img src="assets/img/remove.svg" style="cursor: pointer" alt="supprimer" height="24px" width="24px"
+                (click)="delInfos(i)" />
+              <img src="assets/img/edit.svg" style="cursor: pointer; margin-left: 10px" alt="editer" height="24px"
+                width="24px" (click)="editInfos(i)" />
+            </div>
+          </mat-list-item>
+        </mat-list>
+      </p>
+
+      <h3>Langues</h3>
+
+      <p>
+        <mat-form-field>
+          <input matInput placeholder="Langue" [(ngModel)]="language.language" name="language" #name="ngModel">
+        </mat-form-field>
+
+        <mat-slider style="margin-left: 10%" #matslider [max]="5" [min]="0" [step]="1" [thumbLabel]="thumbLabel"
+          [tickInterval]="1" [(ngModel)]="language.level" name="level" #name="ngModel">
+        </mat-slider>
+        {{matslider.value}}
+      </p>
+
+      <div class="flex">
+        <button mat-raised-button color="accent" class="addButton" type="button" (click)="addLanguage()">Ajouter
+          langue</button>
+      </div>
+
+      <p class="flex">
+        <mat-list>
+          <!-- <h3 mat-subheader>Liste des informations</h3> -->
+          <mat-list-item *ngFor="let i of information.languages" style="display: flex">
+            <div class="list">
+              <h4 mat-line class="title">{{i.language}}</h4>
+              <div class="sublist">
+                <p mat-line> niveau {{i.level}} -> {{i.levelString}} </p>
+              </div>
+
+            </div>
+            <div style="margin-left: 20px">
+              <img src="assets/img/remove.svg" style="cursor: pointer" alt="supprimer" height="24px" width="24px"
+                (click)="delLanguage(i)" />
+              <img src="assets/img/edit.svg" style="cursor: pointer; margin-left: 10px" alt="editer" height="24px"
+                width="24px" (click)="editLanguage(i)" />
+            </div>
+          </mat-list-item>
+        </mat-list>
+      </p>
+
+      <h3>Compétences</h3>
+
+      <p>
+        <mat-form-field class="input-full-width">
+          <input matInput placeholder="Titre" [(ngModel)]="skills.title" name="skillTitle" #name="ngModel">
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field class="input-full-width">
+          <textarea matInput placeholder="Compétences" [(ngModel)]="skills.text" name="skillText"
+            #name="ngModel"></textarea>
+        </mat-form-field>
+      </p>
+
+      <div class="flex">
+        <button mat-raised-button color="accent" class="addButton" type="button" (click)="addSkill()">Ajouter
+          compétence</button>
+      </div>
+
+      <p class="flex">
+        <mat-list>
+          <!-- <h3 mat-subheader>Liste des informations</h3> -->
+          <mat-list-item *ngFor="let i of information.skills" style="display: flex">
+            <div class="list">
+              <h4 mat-line class="title">{{i.title}}</h4>
+              <div class="sublist">
+                <p mat-line> {{i.text}}</p>
+              </div>
+
+            </div>
+            <div style="margin-left: 20px">
+              <img src="assets/img/remove.svg" style="cursor: pointer" alt="supprimer" height="24px" width="24px"
+                (click)="delSkill(i)" />
+              <img src="assets/img/edit.svg" style="cursor: pointer; margin-left: 10px" alt="editer" height="24px"
+                width="24px" (click)="editSkill(i)" />
+            </div>
+          </mat-list-item>
+        </mat-list>
+      </p>
+
+      <h3>Loisirs</h3>
+
+      <p>
+        <mat-form-field class="input-full-width">
+          <textarea matInput placeholder="Loisir" [(ngModel)]="hobbies.text" name="hobbie" #name="ngModel"></textarea>
+        </mat-form-field>
+      </p>
+
+      <div class="flex">
+        <button mat-raised-button color="accent" class="addButton" type="button" (click)="addHobbie()">Ajouter
+          loisir</button>
+      </div>
+
+      <p class="flex">
+        <mat-list>
+          <!-- <h3 mat-subheader>Liste des informations</h3> -->
+          <mat-list-item *ngFor="let i of information.hobbies" style="display: flex">
+            <div class="list">
+              <h4 mat-line class="title">{{i.text}}</h4>
+            </div>
+            <div style="margin-left: 20px">
+              <img src="assets/img/remove.svg" style="cursor: pointer" alt="supprimer" height="24px" width="24px"
+                (click)="delHobbie(i)" />
+              <img src="assets/img/edit.svg" style="cursor: pointer; margin-left: 10px" alt="editer" height="24px"
+                width="24px" (click)="editHobbie(i)" />
+            </div>
+          </mat-list-item>
+        </mat-list>
+      </p>
+
+      <div style="display: flex">
+        <button mat-raised-button style="background: #2e7d32; color: white; margin-left: auto; margin-right: auto"
+          type="submit">Enregistrer</button>
+      </div>
+    </form>
+  </div>
+</mat-card>

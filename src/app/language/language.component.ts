@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { InformationService } from '../services/information/information.service';
-import { Information, language } from '../information';
+import { InformationService } from '../component/infos/information.service';
+import { Information, language } from '../component/infos/information';
+import { selectPersonne } from '../global';
 
 @Component({
   selector: 'app-language',
@@ -13,16 +14,16 @@ export class LanguageComponent implements OnInit {
   constructor(private informationService: InformationService) {}
 
   ngOnInit() {
-    this.getInformations();
+    this.getInformations(selectPersonne);
   }
 
   counter(i: number) {
     return new Array(i);
   }
 
-  getInformations() {
+  getInformations(id) {
     this.informationService
-      .getInformation()
+      .getInformation(id)
       .subscribe((data: Information) => (this.languages = data.languages));
   }
 }

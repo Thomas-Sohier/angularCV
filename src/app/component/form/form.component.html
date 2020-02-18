@@ -1,0 +1,35 @@
+<div style="display: flex">
+  <div>
+    <mat-form-field>
+      <mat-label>Thème</mat-label>
+      <mat-select disabled>
+        <mat-option *ngFor="let food of foods" [value]="food.value">
+          {{food.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div style="margin-left: auto">
+    <mat-form-field>
+      <mat-label>Personne</mat-label>
+      <mat-select [value]="selectedPersonne" (selectionChange)="savePersonne($event.value)">
+        <mat-option *ngFor="let p of personnes" [value]="p.id">
+          {{p.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+</div>
+<div style="margin-bottom: 10px">
+  <app-form-info></app-form-info>
+</div>
+<div style="margin-bottom: 10px">
+  <app-form-experience></app-form-experience>
+</div>
+<div style="margin-bottom: 10px">
+  <app-form-formation></app-form-formation>
+</div>
+<div>
+  <button mat-raised-button color="accent" type='button' (click)="print()">Imprimer</button>
+</div>

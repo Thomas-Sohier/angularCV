@@ -10,21 +10,22 @@ import {
   MatInputModule,
   MatButtonModule,
   MatSliderModule,
-  MatListModule
+  MatListModule,
+  MatSelectModule
 } from '@angular/material';
 import { PickerModule } from '@ctrl/ngx-emoji-mart';
-import { CvComponent } from './cv/cv.component';
-import { FormationComponent } from './formation/formation.component';
-import { ExperienceComponent } from './experience/experience.component';
-import { FormComponent } from './form/form.component';
+import { CvComponent } from './component/cv/cv.component';
+import { FormationComponent } from './component/formation/formation.component';
+import { ExperienceComponent } from './component/experience/experience.component';
+import { FormComponent } from './component/form/form.component';
 import { FormsModule } from '@angular/forms';
-import { InfosComponent } from './infos/infos.component';
+import { InfosComponent } from './component/infos/infos.component';
 import { LanguageComponent } from './language/language.component';
-import { SkillsComponent } from './skills/skills.component';
-import { HobbiesComponent } from './hobbies/hobbies.component';
-import { FormInfoComponent } from './form-info/form-info.component';
-import { FormExperienceComponent } from './form-experience/form-experience.component';
-import { FormFormationComponent } from './form-formation/form-formation.component';
+import { SkillsComponent } from './component/skills/skills.component';
+import { HobbiesComponent } from './component/hobbies/hobbies.component';
+import { FormInfoComponent } from './component/form-info/form-info.component';
+import { FormExperienceComponent } from './component/form-experience/form-experience.component';
+import { FormFormationComponent } from './component/form-formation/form-formation.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { FormFormationComponent } from './form-formation/form-formation.componen
     MatSliderModule,
     MatListModule,
     FormsModule,
-    PickerModule
+    PickerModule,
+    MatSelectModule
   ],
   providers: [
     MatToolbarModule,
@@ -60,7 +62,8 @@ import { FormFormationComponent } from './form-formation/form-formation.componen
     MatInputModule,
     MatButtonModule,
     MatSliderModule,
-    MatListModule
+    MatListModule,
+    MatSelectModule
   ],
   bootstrap: [AppComponent]
 })
