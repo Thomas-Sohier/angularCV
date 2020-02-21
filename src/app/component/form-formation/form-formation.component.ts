@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Formation } from '../formation/formation';
 import { FormationService } from '../formation/formation.service';
-import { selectPersonne } from '../../global';
+import { selectPersonne, GlobalVars } from '../../global';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-form-formation',
@@ -12,32 +13,32 @@ export class FormFormationComponent implements OnInit {
   expanded = false;
   submitted = false;
   selectedIndex = null;
-  formations: Formation[] = [];
   formation = new Formation(0, '', '', '', '');
 
-  constructor(private formationService: FormationService) {}
+  constructor(
+    private _snackBar: MatSnackBar
+  ) {}
 
-  ngOnInit() {
-    this.getFormation();
-  }
+  ngOnInit() {}
 
-  getFormation() {
-    this.formationService.getFormations().subscribe(
-      (data: Formation[]) => (this.formations = data),
-      error => console.log(error)
-    );
+  get formations() {
+    return GlobalVars.formations;
   }
 
   onSubmit() {
     this.submitted = true;
-    console.log(this.formations);
     this.addFormations();
   }
 
   addFormations() {
-    this.formationService
-      .addFormation(this.formation)
-      .subscribe(formation => (this.formation = formation));
+    localStorage.setItem('formations', JSON.stringify(GlobalVars.formations));
+    this.openSnackBar('Formations ajoutées', null);
+  }
+
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      duration: 2000
+    });
   }
 
   toggle() {

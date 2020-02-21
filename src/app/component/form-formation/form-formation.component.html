@@ -27,8 +27,8 @@
 
       <p>
         <mat-form-field class="input-full-width">
-          <input matInput placeholder="Description" [(ngModel)]="formation.description" name="description"
-            #name="ngModel">
+          <textarea matInput placeholder="Description" [(ngModel)]="formation.description" name="description"
+            #name="ngModel"></textarea>
         </mat-form-field>
       </p>
 
@@ -40,7 +40,7 @@
 
       <p>
         <mat-list>
-          <mat-list-item *ngFor="let i of formations.formation" style="display: flex">
+          <mat-list-item *ngFor="let i of formations" style="display: flex">
             <div class="list">
               <h4 mat-line class="title">{{i.title}}</h4>
               <div class="sublist">

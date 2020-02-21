@@ -1,25 +1,12 @@
-<div style="display: flex">
-  <div>
-    <mat-form-field>
-      <mat-label>Thème</mat-label>
-      <mat-select disabled>
-        <mat-option *ngFor="let food of foods" [value]="food.value">
-          {{food.viewValue}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-  </div>
-  <div style="margin-left: auto">
-    <mat-form-field>
-      <mat-label>Personne</mat-label>
-      <mat-select [value]="selectedPersonne" (selectionChange)="savePersonne($event.value)">
-        <mat-option *ngFor="let p of personnes" [value]="p.id">
-          {{p.name}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-  </div>
-
+<div>
+  <mat-form-field style="width: 100%;">
+    <mat-label>Thème</mat-label>
+    <mat-select [(value)]="currentTheme" (selectionChange)="changeTheme()">
+      <mat-option *ngFor="let theme of themes" [value]="theme">
+        {{theme.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
 </div>
 <div style="margin-bottom: 10px">
   <app-form-info></app-form-info>
@@ -30,6 +17,11 @@
 <div style="margin-bottom: 10px">
   <app-form-formation></app-form-formation>
 </div>
+
 <div>
   <button mat-raised-button color="accent" type='button' (click)="print()">Imprimer</button>
+  <button style="margin-left: 10px;" mat-button color="accent" type='button' download="download.json"
+    (click)="downloadJSON()">Export</button>
+  <input style="margin-top: 20px;" id="file" type="file" class="inputfile" (change)="importJSON($event.target.files)">
+  <label for="file">Choisir un fichier</label>
 </div>

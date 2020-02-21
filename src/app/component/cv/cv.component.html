@@ -1,55 +1,46 @@
-  <div style="display: flex; height: 1300px;" id="toPrint">
-    <!-- CV -->
-    <div id="cv" class="cv" style="margin-left: auto; margin-right: auto">
-      <div class="infoPerso">
-        <div name="shape">
-          <div id="rectangle"></div>
-          <div id="ovalFirst"></div>
-          <div id="ovalSec"></div>
-        </div>
-
-        <div style="margin: 10px">
-          <h2 style="color: white;text-align: center;position: relative; z-index: 1;">{{informations.surname}}
-            {{informations.name}}</h2>
-          <img [src]="transform()" class="imgHead" height="auto" width="auto">
-          <div class="searchTitle">
-            <h3>{{informations.title}}</h3>
-          </div>
-          <h3 class="titleSelfInfo">Données personnelles</h3>
-          <app-infos></app-infos>
-
-          <h3 class="titleSelfInfo">Langues</h3>
-          <app-language></app-language>
-
-          <h3 class="titleSelfInfo">Compétences</h3>
-          <app-skills></app-skills>
-
-          <h3 class="titleSelfInfo">Loisirs</h3>
-          <app-hobbies></app-hobbies>
-
-          <!-- <div style="margin-top: 55%; text-align: center">
-            <p style="font-size: 12px">Fait en HTML/CSS</p>
-            <div style="display: flex"></div>
-            <img class="small-logo" src="img/html.png" alt="">
-            <img class="small-logo" style="width: 18px" src="img/css.png" alt="">
-          </div> -->
-        </div>
-
+<div id="cv" class="cv" style="margin-left: auto; margin-right: auto">
+  <div class="infoPerso">
+    <div style="margin: 10px">
+      <h2 style="color: white;text-align: center;position: relative; z-index: 1;">{{information.surname}}
+        {{information.name}}</h2>
+      <img [src]="transform()" class="imgHead" height="auto" width="auto">
+      <div class="title">
+        <h3 class="titleText">{{information.title}}</h3>
       </div>
-      <div class="infoEducation">
-        <div class="subInfo">
-          <h2>Expérience professionnelle</h2>
-          <div name="experience">
-            <app-experience></app-experience>
-          </div>
+      <h3 class="titleSelfInfo">Données personnelles</h3>
+      <app-infos></app-infos>
 
-          <hr>
+      <h3 class="titleSelfInfo">Langues</h3>
+      <app-language></app-language>
 
-          <h2>Formation</h2>
-          <div name="enseignement">
-            <app-formation></app-formation>
-          </div>
-        </div>
+      <h3 class="titleSelfInfo">Compétences</h3>
+      <app-skills></app-skills>
+
+      <h3 class="titleSelfInfo">Loisirs</h3>
+      <app-hobbies></app-hobbies>
+
+      <div style="margin-top: 100%; text-align: center">
+        <p style="font-size: 12px">Fait en HTML/CSS</p>
+        <div style="display: flex"></div>
+        <img class="small-logo" src="../../../assets/img/html.png" alt="">
+        <img class="small-logo" style="width: 18px" src="../../../assets/img/css.png" alt="">
+      </div>
+    </div>
+
+  </div>
+  <div class="infoEducation">
+    <div class="subInfo">
+      <h2>Expérience professionnelle</h2>
+      <div name="experience">
+        <app-experience></app-experience>
+      </div>
+
+      <hr>
+
+      <h2>Formation</h2>
+      <div name="enseignement">
+        <app-formation></app-formation>
       </div>
     </div>
   </div>
+</div>

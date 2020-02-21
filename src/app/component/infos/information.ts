@@ -1,7 +1,7 @@
-import { Language } from "src/app/language/language";
 import { Hobbies } from "../hobbies/hobbies";
 import { Infos } from "./infos";
 import { Skills } from "../skills/skills";
+import { Language } from '../language/language';
 
 export interface Information {
   id: number;

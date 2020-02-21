@@ -1,23 +1,21 @@
-import { Experience } from '../experience/experience';
-import { Formation } from '../formation/formation';
-import { hobbies } from '../infos/information';
+import { Experience } from "../experience/experience";
+import { Formation } from "../formation/formation";
+import { Hobbies } from "../hobbies/hobbies";
+import { Information } from "../infos/information";
 
 export interface CV {
   id: number;
-  experience: Experience[];
-  formation: Formation[];
-  hobbies: hobbies[];
-
+  experiences: Experience[];
+  formations: Formation[];
+  hobbies: Hobbies[];
+  informations: Information;
 }
 
 export class CV {
   constructor(
     public id: number,
-    public img: string,
-    public date: string,
-    public firm: string,
-    public job: string,
-    public place: string,
-    public description: string
+    public experiences: Experience[],
+    public formations: Formation[],
+    public hobbies: Hobbies[]
   ) {}
 }

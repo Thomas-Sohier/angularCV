@@ -1,17 +1,17 @@
-import { Injectable } from "@angular/core";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { Observable } from "rxjs";
-import { Formation } from "./formation";
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Formation } from './formation';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class FormationService {
-  configUrl = "http://localhost:3000/formations";
+  configUrl = 'http://localhost:3000/formations';
 
   httpOptions = {
     headers: new HttpHeaders({
-      "Content-Type": "application/json; charset=UTF-8"
+      'Content-Type': 'application/json; charset=UTF-8'
     })
   };
 
@@ -23,7 +23,7 @@ export class FormationService {
 
   addFormation(formation: Formation): Observable<Formation> {
     return this.http.put<Formation>(
-      this.configUrl + "/" + formation.id,
+      this.configUrl + '/' + formation.id,
       formation,
       this.httpOptions
     );

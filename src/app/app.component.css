@@ -3,3 +3,14 @@
   top: 0;
   z-index: 200
 }
+
+body {
+  background: var(--background-secondary) !important;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "PT Sans", sans-serif;
+}

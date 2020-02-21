@@ -1,3 +1,15 @@
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+li {
+  color: var(--foreground-black);
+  ;
+}
+
 h4 {
   margin-block-end: 0;
   margin-block-start: 0;
@@ -9,7 +21,7 @@ h3 {
 }
 
 h2 {
-  color: #404040;
+  color: var(--foreground-grey);
   font-family: monospace;
   font-size: 24px;
 }
@@ -20,15 +32,18 @@ p {
 }
 
 .subtitle {
-  color: #4d8c94;
+  color: var(--secondary-dark);
 }
 
 .title {
-  color: #404040;
+  color: var(--foreground-grey);
 }
 
 .description {
+  line-break: auto;
+  text-align: justify;
   margin-top: 10px;
+  white-space: pre-line;
 }
 
 .exp {
@@ -38,6 +53,8 @@ p {
 
 .logo {
   width: 30px;
+  height: 30px;
+  object-fit: cover;
   margin-top: 10px;
   margin-right: 20px;
   margin-bottom: 10px;

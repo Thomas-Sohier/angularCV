@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Information } from "./information";
 import { InformationService } from "./information.service";
-import { selectPersonne } from "../../global";
+import { selectPersonne, GlobalVars } from "../../global";
 import { Infos } from "./infos";
 
 @Component({
@@ -10,17 +10,11 @@ import { Infos } from "./infos";
   styleUrls: ["./infos.component.css"]
 })
 export class InfosComponent implements OnInit {
-  infos: Infos[] = [];
-
   constructor(private informationService: InformationService) {}
 
-  ngOnInit() {
-    this.getInformations(selectPersonne);
-  }
+  ngOnInit() {}
 
-  getInformations(id) {
-    this.informationService
-      .getInformation(id)
-      .subscribe((data: Information) => (this.infos = data.infos));
+  get infos() {
+    return GlobalVars.information.infos;
   }
 }

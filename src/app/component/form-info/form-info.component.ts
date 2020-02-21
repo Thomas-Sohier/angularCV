@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
-import { selectPersonne } from '../../global';
+import { selectPersonne, GlobalVars } from '../../global';
 import { Information } from '../infos/information';
 import { Infos } from '../infos/infos';
-import { Language } from 'src/app/language/language';
+import { Language } from 'src/app/component/language/language';
 import { Skills } from '../skills/skills';
 import { Hobbies } from '../hobbies/hobbies';
 import { InformationService } from '../infos/information.service';
@@ -19,7 +19,6 @@ export class FormInfoComponent implements OnInit {
   selectedIndex = null;
   base64textString = '';
   file = '';
-  information = new Information(0, '', '', '', [], [], [], []);
 
   // Infos
   infos = new Infos('', '');
@@ -42,6 +41,10 @@ export class FormInfoComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
     this.addInformation();
+  }
+
+  get information() {
+    return GlobalVars.information;
   }
 
   // Call this method in the image source, it will sanitize it.
@@ -99,15 +102,13 @@ export class FormInfoComponent implements OnInit {
   }
 
   addInformation() {
-    this.informationService
-      .addInformation(this.information)
-      .subscribe(information => (this.information = information));
+    localStorage.setItem('information', JSON.stringify(GlobalVars.information));
   }
 
   getInformation(id) {
     this.informationService
       .getInformation(id)
-      .subscribe(information => (this.information = information));
+      .subscribe(information => (information = information));
   }
 
   // Commmands for different personnal data

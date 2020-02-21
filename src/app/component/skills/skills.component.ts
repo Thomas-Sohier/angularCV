@@ -1,24 +1,20 @@
-import { Component, OnInit } from '@angular/core';
-import { InformationService } from '../infos/information.service';
-import { Information, skills } from '../infos/information';
-import { selectPersonne } from '../../global';
+import { Component, OnInit } from "@angular/core";
+import { InformationService } from "../infos/information.service";
+import { Information } from "../infos/information";
+import { selectPersonne, GlobalVars } from "../../global";
+import { Skills } from "./skills";
 
 @Component({
-  selector: 'app-skills',
-  templateUrl: './skills.component.html',
-  styleUrls: ['./skills.component.css']
+  selector: "app-skills",
+  templateUrl: "./skills.component.html",
+  styleUrls: ["./skills.component.css"]
 })
 export class SkillsComponent implements OnInit {
-  skills: Array<skills>;
-  constructor(private informationService: InformationService) {}
+  constructor() {}
 
-  ngOnInit() {
-    this.getInformations(selectPersonne);
-  }
+  ngOnInit() {}
 
-  getInformations(id) {
-    this.informationService
-      .getInformation(id)
-      .subscribe((data: Information) => (this.skills = data.skills));
+  get skills() {
+    return GlobalVars.information.skills;
   }
 }

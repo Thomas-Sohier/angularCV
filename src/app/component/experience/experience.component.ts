@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { Experience } from "./experience";
 import { ExperienceService } from "./experience.service";
 import { DomSanitizer } from "@angular/platform-browser";
-import { selectPersonne } from "../../global";
+import { selectPersonne, GlobalVars } from "../../global";
 
 @Component({
   selector: "app-experience",
@@ -10,22 +10,12 @@ import { selectPersonne } from "../../global";
   styleUrls: ["./experience.component.css"]
 })
 export class ExperienceComponent implements OnInit {
-  experiences: Experience[] = [];
+  constructor(private sanitizer: DomSanitizer) {}
 
-  constructor(
-    private experienceService: ExperienceService,
-    private sanitizer: DomSanitizer
-  ) {}
+  ngOnInit() {}
 
-  ngOnInit() {
-    this.getExperience(selectPersonne);
-  }
-
-  getExperience(id: number) {
-    this.experienceService.getExperience(id).subscribe(
-      (data: Experience[]) => (this.experiences = data),
-      error => console.log(error)
-    );
+  get experiences() {
+    return GlobalVars.experiences;
   }
 
   transform(base64: string) {

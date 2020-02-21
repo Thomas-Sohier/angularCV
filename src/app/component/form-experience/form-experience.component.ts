@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Experience } from '../experience/experience';
 import { ExperienceService } from '../experience/experience.service';
 import { DomSanitizer } from '@angular/platform-browser';
-import { selectPersonne } from '../../global';
+import { selectPersonne, GlobalVars } from '../../global';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-form-experience',
@@ -15,23 +16,17 @@ export class FormExperienceComponent implements OnInit {
   selectedIndex = null;
   base64textString = '';
   btnAddText = 'Ajouter une expérience';
-  experiences: Experience[] = [];
   experience = new Experience(0, '', '', '', '', '', '');
 
   constructor(
-    private experienceService: ExperienceService,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private _snackBar: MatSnackBar
   ) {}
 
-  ngOnInit() {
-    this.getExperience();
-  }
+  ngOnInit() {}
 
-  getExperience() {
-    this.experienceService.getExperience(selectPersonne).subscribe(
-      (data: Experience[]) => (this.experiences = data),
-      error => console.log(error)
-    );
+  get experiences() {
+    return GlobalVars.experiences;
   }
 
   onSubmit() {
@@ -65,19 +60,29 @@ export class FormExperienceComponent implements OnInit {
   }
 
   addExperiences() {
-    this.experienceService
-      .addExperience(this.experience)
-      .subscribe(experience => (this.experience = experience));
+    localStorage.setItem('experiences', JSON.stringify(GlobalVars.experiences));
+    this.openSnackBar('Expériences ajoutées', null);
+  }
+
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      duration: 2000
+    });
   }
 
   addExp() {
     if (this.selectedIndex === null) {
-      this.experiences.push(this.experience);
+      GlobalVars.experiences.push(this.experience);
     } else {
-      this.experiences[this.selectedIndex] = this.experience;
+      GlobalVars.experiences[this.selectedIndex] = this.experience;
       this.selectedIndex = null;
       this.btnAddText = 'Ajouter une expérience';
     }
+    this.resetExperience();
+  }
+
+  resetExperience() {
+    this.experience = new Experience(GlobalVars.experiences.length  + 1, '', '', '', '', '', '');
   }
 
   toggle() {
@@ -85,15 +90,15 @@ export class FormExperienceComponent implements OnInit {
   }
 
   delExp(item) {
-    const index = this.experiences.indexOf(item);
+    const index = GlobalVars.experiences.indexOf(item);
     if (index > -1) {
-      this.experiences.splice(index, 1);
+      GlobalVars.experiences.splice(index, 1);
     }
   }
 
   editExp(item) {
     this.experience = item;
-    this.selectedIndex = this.experiences.indexOf(item);
+    this.selectedIndex = GlobalVars.experiences.indexOf(item);
     this.btnAddText = 'Mettre à jour';
   }
 }
