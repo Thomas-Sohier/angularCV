@@ -33,6 +33,7 @@ Then just :
 
 ```bash
 docker pull icecu8e/angularcv:latest
+docker run --rm -d -p 80:80/tcp icecu8e/angularcv:latest 
 ```
 
 ### Build it
