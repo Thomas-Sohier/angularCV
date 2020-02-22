@@ -63,21 +63,7 @@ export class FormComponent implements OnInit {
     this.themeService.setActiveTheme(this.currentTheme);
   }
 
-  // print() {
-  //   PHE.printElement(document.getElementById("cv"));
-  // }
-
   print() {
-    const printContent = document.getElementById("cv");
-    const WindowPrt = window.open(
-      "",
-      "",
-      '<link rel="stylesheet" type="text/css" href="../../../styles.css">'
-    );
-    WindowPrt.document.write(printContent.innerHTML);
-    WindowPrt.document.close();
-    WindowPrt.focus();
-    WindowPrt.print();
-    WindowPrt.close();
+    PHE.printElement(document.getElementById("cv"));
   }
 }
