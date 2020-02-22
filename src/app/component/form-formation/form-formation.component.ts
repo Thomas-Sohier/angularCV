@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Formation } from '../formation/formation';
-import { FormationService } from '../formation/formation.service';
-import { selectPersonne, GlobalVars } from '../../global';
+import { GlobalVars } from '../../global';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
@@ -15,9 +14,7 @@ export class FormFormationComponent implements OnInit {
   selectedIndex = null;
   formation = new Formation(0, '', '', '', '');
 
-  constructor(
-    private _snackBar: MatSnackBar
-  ) {}
+  constructor(private _snackBar: MatSnackBar) {}
 
   ngOnInit() {}
 
@@ -52,6 +49,17 @@ export class FormFormationComponent implements OnInit {
       this.formations[this.selectedIndex] = this.formation;
       this.selectedIndex = null;
     }
+    this.resetFormation();
+  }
+
+  resetFormation() {
+    this.formation = new Formation(
+      GlobalVars.formations.length + 1,
+      '',
+      '',
+      '',
+      ''
+    );
   }
 
   delFormation(item) {

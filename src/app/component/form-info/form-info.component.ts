@@ -1,42 +1,35 @@
-import { Component, OnInit } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
-import { selectPersonne, GlobalVars } from '../../global';
-import { Information } from '../infos/information';
-import { Infos } from '../infos/infos';
-import { Language } from 'src/app/component/language/language';
-import { Skills } from '../skills/skills';
-import { Hobbies } from '../hobbies/hobbies';
-import { InformationService } from '../infos/information.service';
+import { Component, OnInit } from "@angular/core";
+import { DomSanitizer } from "@angular/platform-browser";
+import { selectPersonne, GlobalVars } from "../../global";
+import { Infos } from "../infos/infos";
+import { Language } from "src/app/component/language/language";
+import { Skills } from "../skills/skills";
+import { Hobbies } from "../hobbies/hobbies";
 
 @Component({
-  selector: 'app-form-info',
-  templateUrl: './form-info.component.html',
-  styleUrls: ['./form-info.component.css']
+  selector: "app-form-info",
+  templateUrl: "./form-info.component.html",
+  styleUrls: ["./form-info.component.css"]
 })
 export class FormInfoComponent implements OnInit {
   expanded = false;
   submitted = false;
   selectedIndex = null;
-  base64textString = '';
-  file = '';
+  base64textString = "";
+  file = "";
 
   // Infos
-  infos = new Infos('', '');
+  infos = new Infos("", "");
   // Languages
-  language = new Language('', 0);
+  language = new Language("", 0);
   // Skills
-  skills = new Skills('', '');
+  skills = new Skills("", "");
   // Hobbies
-  hobbies = new Hobbies('');
+  hobbies = new Hobbies("");
 
-  constructor(
-    private informationService: InformationService,
-    private sanitizer: DomSanitizer
-  ) {}
+  constructor(private sanitizer: DomSanitizer) {}
 
-  ngOnInit() {
-    this.getInformation(selectPersonne);
-  }
+  ngOnInit() {}
 
   onSubmit() {
     this.submitted = true;
@@ -50,7 +43,7 @@ export class FormInfoComponent implements OnInit {
   // Call this method in the image source, it will sanitize it.
   transform() {
     return this.sanitizer.bypassSecurityTrustResourceUrl(
-      'data:image/png;base64, ' + this.base64textString
+      "data:image/png;base64, " + this.base64textString
     );
   }
 
@@ -80,35 +73,29 @@ export class FormInfoComponent implements OnInit {
     let levelString;
     switch (level) {
       case 0:
-        levelString = 'A1';
+        levelString = "A1";
         break;
       case 1:
-        levelString = 'A2';
+        levelString = "A2";
         break;
       case 2:
-        levelString = 'B1';
+        levelString = "B1";
         break;
       case 3:
-        levelString = 'B2';
+        levelString = "B2";
         break;
       case 4:
-        levelString = 'C1';
+        levelString = "C1";
         break;
       case 5:
-        levelString = 'C2';
+        levelString = "C2";
         break;
     }
     return levelString;
   }
 
   addInformation() {
-    localStorage.setItem('information', JSON.stringify(GlobalVars.information));
-  }
-
-  getInformation(id) {
-    this.informationService
-      .getInformation(id)
-      .subscribe(information => (information = information));
+    localStorage.setItem("information", JSON.stringify(GlobalVars.information));
   }
 
   // Commmands for different personnal data
@@ -138,7 +125,7 @@ export class FormInfoComponent implements OnInit {
   }
 
   resetInfos() {
-    this.infos = new Infos('', '');
+    this.infos = new Infos("", "");
   }
 
   // Language
@@ -168,7 +155,7 @@ export class FormInfoComponent implements OnInit {
   }
 
   resetLanguage() {
-    this.language = new Language('', 0);
+    this.language = new Language("", 0);
   }
 
   // Skills
@@ -197,7 +184,7 @@ export class FormInfoComponent implements OnInit {
   }
 
   resetSkill() {
-    this.skills = new Skills('', '');
+    this.skills = new Skills("", "");
   }
 
   // Hobbies
@@ -226,6 +213,6 @@ export class FormInfoComponent implements OnInit {
   }
 
   resetHobbie() {
-    this.hobbies = new Hobbies('');
+    this.hobbies = new Hobbies("");
   }
 }

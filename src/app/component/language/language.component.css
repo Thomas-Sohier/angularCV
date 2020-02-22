@@ -11,14 +11,20 @@ h6 {
 
 .level.empty {
   background-color: #efefef;
+  border: solid thin #efefef;
 }
 
 .level {
+  color: var(--foreground-font-black);
   line-height: 15px;
   margin: 1px;
-  color: #000000;
-  font-size: 10.1px;
-  font-weight: 700;
+  font-family: Roboto,
+    "Helvetica Neue",
+    sans-serif;
+  font-size: 10px;
+  font-weight: 900;
+  /* font-size: 10.1px;
+  font-weight: 700; */
   width: 15px;
   height: 15px;
   border: var(--secondary-default);
@@ -27,6 +33,19 @@ h6 {
   border-radius: 50%;
   text-align: center;
   background-color: var(--secondary-default);
+}
+
+.language {
+  margin: 5px 0px;
+  border-left: solid 5px var(--secondary-default);
+  padding-left: 5px;
+}
+
+.languageCount {
+  display: flex;
+  margin-left: auto;
+  margin-right: 5%;
+  font-size: 18px
 }
 
 h4 {

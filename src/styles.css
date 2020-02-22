@@ -16,15 +16,18 @@ body {
   --foreground-black: #000000;
   --foreground-grey: #404040;
 
+  --foreground-font-primary: #ffffff;
+  --foreground-font-secondary: #ffffff;
+
   --background-default: #ffffff;
 
   --primary-default: #3949ab;
   --primary-light: #6f74dd;
   --primary-dark: #00227b;
 
-  --secondary-default: #f06292;
-  --secondary-light: #ff94c2;
-  --secondary-dark: #ba2d65;
+  --secondary-default: #ff4081;
+  --secondary-light: #ff79b0;
+  --secondary-dark: #c60055;
 
   --background-tertiary-shadow: 0 1px 3px 0 #C3C3C3;
 

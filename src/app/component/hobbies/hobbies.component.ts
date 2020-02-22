@@ -1,9 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { Information } from "../infos/information";
-import { InformationService } from "../infos/information.service";
-import { selectPersonne, GlobalVars } from "../../global";
-import { Hobbies } from "./hobbies";
-
+import { GlobalVars } from "../../global";
 @Component({
   selector: "app-hobbies",
   templateUrl: "./hobbies.component.html",

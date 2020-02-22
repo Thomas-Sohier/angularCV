@@ -1,8 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { Experience } from "./experience";
-import { ExperienceService } from "./experience.service";
 import { DomSanitizer } from "@angular/platform-browser";
-import { selectPersonne, GlobalVars } from "../../global";
+import { GlobalVars } from "../../global";
 
 @Component({
   selector: "app-experience",

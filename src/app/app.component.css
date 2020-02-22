@@ -1,11 +1,9 @@
-.my-toolbar {
+.toolbar {
   position: fixed;
   top: 0;
-  z-index: 200
-}
-
-body {
-  background: var(--background-secondary) !important;
+  z-index: 200;
+  background: var(--primary-default);
+  color: var(--foreground-default);
 }
 
 html,

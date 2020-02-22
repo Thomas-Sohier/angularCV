@@ -1,12 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { InformationService } from "../infos/information.service";
 import { Information } from "../infos/information";
 import { DomSanitizer } from "@angular/platform-browser";
 import { GlobalVars } from "../../global";
-import { FormationService } from "../formation/formation.service";
-import { Formation } from "../formation/formation";
-import { ExperienceService } from "../experience/experience.service";
-import { Experience } from "../experience/experience";
 
 @Component({
   selector: "app-cv",

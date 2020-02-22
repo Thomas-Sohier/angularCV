@@ -1,8 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { Information } from "./information";
-import { InformationService } from "./information.service";
-import { selectPersonne, GlobalVars } from "../../global";
-import { Infos } from "./infos";
+import { GlobalVars } from "../../global";
 
 @Component({
   selector: "app-infos",
@@ -10,7 +7,7 @@ import { Infos } from "./infos";
   styleUrls: ["./infos.component.css"]
 })
 export class InfosComponent implements OnInit {
-  constructor(private informationService: InformationService) {}
+  constructor() {}
 
   ngOnInit() {}
 

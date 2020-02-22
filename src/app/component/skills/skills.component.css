@@ -29,3 +29,9 @@ p {
   margin-block-end: 0;
   margin-block-start: 0;
 }
+
+.skill {
+  margin: 5px 0px;
+  border-left: solid 5px var(--secondary-default);
+  padding-left: 5px;
+}

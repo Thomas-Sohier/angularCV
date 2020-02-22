@@ -1,8 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { InformationService } from "../infos/information.service";
-import { Information } from "../infos/information";
-import { selectPersonne, GlobalVars } from "../../global";
-import { Skills } from "./skills";
+import { GlobalVars } from "../../global";
 
 @Component({
   selector: "app-skills",

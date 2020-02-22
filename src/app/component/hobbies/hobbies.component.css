@@ -4,8 +4,28 @@ h2,
 h3,
 h4,
 h5,
-h6,
-li {
+h6 {
   color: var(--foreground-default);
-  ;
+}
+
+.hobbies {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1;
+}
+
+.hobbies>p {
+  color: var(--foreground-font-secondary);
+  font-family: Roboto,
+    "Helvetica Neue",
+    sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+p {
+  background: var(--secondary-default);
+  border-radius: 30px;
+  padding: 5px 16px;
+  margin: 5px;
 }

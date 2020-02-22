@@ -1,22 +1,21 @@
-import { Component, OnInit } from '@angular/core';
-import { Experience } from '../experience/experience';
-import { ExperienceService } from '../experience/experience.service';
-import { DomSanitizer } from '@angular/platform-browser';
-import { selectPersonne, GlobalVars } from '../../global';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { Component, OnInit } from "@angular/core";
+import { Experience } from "../experience/experience";
+import { DomSanitizer } from "@angular/platform-browser";
+import { GlobalVars } from "../../global";
+import { MatSnackBar } from "@angular/material/snack-bar";
 
 @Component({
-  selector: 'app-form-experience',
-  templateUrl: './form-experience.component.html',
-  styleUrls: ['./form-experience.component.css']
+  selector: "app-form-experience",
+  templateUrl: "./form-experience.component.html",
+  styleUrls: ["./form-experience.component.css"]
 })
 export class FormExperienceComponent implements OnInit {
   expanded = false;
   submitted = false;
   selectedIndex = null;
-  base64textString = '';
-  btnAddText = 'Ajouter une expérience';
-  experience = new Experience(0, '', '', '', '', '', '');
+  base64textString = "";
+  btnAddText = "Ajouter une expérience";
+  experience = new Experience(0, "", "", "", "", "", "");
 
   constructor(
     private sanitizer: DomSanitizer,
@@ -37,7 +36,7 @@ export class FormExperienceComponent implements OnInit {
   // Call this method in the image source, it will sanitize it.
   transform(img: string) {
     return this.sanitizer.bypassSecurityTrustResourceUrl(
-      'data:image/png;base64, ' + img
+      "data:image/png;base64, " + img
     );
   }
 
@@ -60,8 +59,8 @@ export class FormExperienceComponent implements OnInit {
   }
 
   addExperiences() {
-    localStorage.setItem('experiences', JSON.stringify(GlobalVars.experiences));
-    this.openSnackBar('Expériences ajoutées', null);
+    localStorage.setItem("experiences", JSON.stringify(GlobalVars.experiences));
+    this.openSnackBar("Expériences ajoutées", null);
   }
 
   openSnackBar(message: string, action: string) {
@@ -76,13 +75,21 @@ export class FormExperienceComponent implements OnInit {
     } else {
       GlobalVars.experiences[this.selectedIndex] = this.experience;
       this.selectedIndex = null;
-      this.btnAddText = 'Ajouter une expérience';
+      this.btnAddText = "Ajouter une expérience";
     }
     this.resetExperience();
   }
 
   resetExperience() {
-    this.experience = new Experience(GlobalVars.experiences.length  + 1, '', '', '', '', '', '');
+    this.experience = new Experience(
+      GlobalVars.experiences.length + 1,
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    );
   }
 
   toggle() {
@@ -99,6 +106,6 @@ export class FormExperienceComponent implements OnInit {
   editExp(item) {
     this.experience = item;
     this.selectedIndex = GlobalVars.experiences.indexOf(item);
-    this.btnAddText = 'Mettre à jour';
+    this.btnAddText = "Mettre à jour";
   }
 }
