@@ -1,22 +1,21 @@
-import { Component, OnInit } from "@angular/core";
-import * as PHE from "print-html-element";
-import { Personne } from "../personne/personne";
-import { selectPersonne, GlobalVars } from "../../global";
-import { ThemeService } from "src/app/theme/theme.service";
-import { Theme } from "src/app/theme/theme";
-import { saveAs } from "file-saver";
+import { Component, OnInit } from '@angular/core';
+import * as PHE from 'print-html-element';
+import { Personne } from '../personne/personne';
+import { selectPersonne, GlobalVars } from '../../global';
+import { ThemeService } from 'src/app/theme/theme.service';
+import { Theme } from 'src/app/theme/theme';
+import { saveAs } from 'file-saver';
 
 @Component({
-  selector: "app-form",
-  templateUrl: "./form.component.html",
-  styleUrls: ["./form.component.css"]
+  selector: 'app-form',
+  templateUrl: './form.component.html',
+  styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
   personnes: Personne[] = [];
   selectedPersonne: number;
   themes: Theme[] = [];
   currentTheme: Theme;
-  // selectTheme = 0; //TODO à ajouter plus tard
   constructor(private themeService: ThemeService) {}
 
   ngOnInit() {
@@ -25,14 +24,14 @@ export class FormComponent implements OnInit {
   }
 
   downloadJSON() {
-    let finalJSON = "[";
-    finalJSON += JSON.stringify(GlobalVars.experiences) + ",";
-    finalJSON += JSON.stringify(GlobalVars.formations) + ",";
+    let finalJSON = '[';
+    finalJSON += JSON.stringify(GlobalVars.experiences) + ',';
+    finalJSON += JSON.stringify(GlobalVars.formations) + ',';
     finalJSON += JSON.stringify(GlobalVars.information);
-    finalJSON += "]";
+    finalJSON += ']';
 
-    const blob = new Blob([finalJSON], { type: "application/json" });
-    saveAs(blob, "monCV.json");
+    const blob = new Blob([finalJSON], { type: 'application/json' });
+    saveAs(blob, 'monCV.json');
   }
 
   importJSON(file) {
@@ -45,17 +44,17 @@ export class FormComponent implements OnInit {
       GlobalVars.information = obj[2];
 
       localStorage.setItem(
-        "experiences",
+        'experiences',
         JSON.stringify(GlobalVars.experiences)
       );
-      localStorage.setItem("formations", JSON.stringify(GlobalVars.formations));
+      localStorage.setItem('formations', JSON.stringify(GlobalVars.formations));
       localStorage.setItem(
-        "information",
+        'information',
         JSON.stringify(GlobalVars.information)
       );
     };
     reader.onerror = evt => {
-      console.error("Failed to read this file");
+      console.error('Failed to read this file');
     };
   }
 
@@ -64,6 +63,6 @@ export class FormComponent implements OnInit {
   }
 
   print() {
-    PHE.printElement(document.getElementById("cv"));
+    PHE.printElement(document.getElementById('cv'));
   }
 }

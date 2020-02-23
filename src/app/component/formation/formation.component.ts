@@ -1,10 +1,10 @@
-import { Component, OnInit } from "@angular/core";
-import { GlobalVars } from "../../global";
+import { Component, OnInit } from '@angular/core';
+import { GlobalVars } from '../../global';
 
 @Component({
-  selector: "app-formation",
-  templateUrl: "./formation.component.html",
-  styleUrls: ["./formation.component.css"]
+  selector: 'app-formation',
+  templateUrl: './formation.component.html',
+  styleUrls: ['./formation.component.css']
 })
 export class FormationComponent implements OnInit {
   constructor() {}

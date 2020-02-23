@@ -1,10 +1,10 @@
-import { Component, OnInit } from "@angular/core";
-import { GlobalVars } from "src/app/global";
+import { Component, OnInit } from '@angular/core';
+import { GlobalVars } from 'src/app/global';
 
 @Component({
-  selector: "app-language",
-  templateUrl: "./language.component.html",
-  styleUrls: ["./language.component.css"]
+  selector: 'app-language',
+  templateUrl: './language.component.html',
+  styleUrls: ['./language.component.css']
 })
 export class LanguageComponent implements OnInit {
   constructor() {}

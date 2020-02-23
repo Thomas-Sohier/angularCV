@@ -1,11 +1,11 @@
-import { Component, OnInit } from "@angular/core";
-import { DomSanitizer } from "@angular/platform-browser";
-import { GlobalVars } from "../../global";
+import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
+import { GlobalVars } from '../../global';
 
 @Component({
-  selector: "app-experience",
-  templateUrl: "./experience.component.html",
-  styleUrls: ["./experience.component.css"]
+  selector: 'app-experience',
+  templateUrl: './experience.component.html',
+  styleUrls: ['./experience.component.css']
 })
 export class ExperienceComponent implements OnInit {
   constructor(private sanitizer: DomSanitizer) {}
@@ -18,7 +18,7 @@ export class ExperienceComponent implements OnInit {
 
   transform(base64: string) {
     return this.sanitizer.bypassSecurityTrustResourceUrl(
-      "data:image/png;base64, " + base64
+      'data:image/png;base64, ' + base64
     );
   }
 }

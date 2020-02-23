@@ -1,24 +1,24 @@
-import { Component, OnInit } from "@angular/core";
-import { Information } from "../infos/information";
-import { DomSanitizer } from "@angular/platform-browser";
-import { GlobalVars } from "../../global";
+import { Component, OnInit } from '@angular/core';
+import { Information } from '../infos/information';
+import { DomSanitizer } from '@angular/platform-browser';
+import { GlobalVars } from '../../global';
 
 @Component({
-  selector: "app-cv",
-  templateUrl: "./cv.component.html",
-  styleUrls: ["./cv.component.css"]
+  selector: 'app-cv',
+  templateUrl: './cv.component.html',
+  styleUrls: ['./cv.component.css']
 })
 export class CvComponent implements OnInit {
   constructor(private sanitizer: DomSanitizer) {}
 
   ngOnInit() {
     GlobalVars.experiences =
-      JSON.parse(localStorage.getItem("experiences")) ?? [];
+      JSON.parse(localStorage.getItem('experiences')) ?? [];
     GlobalVars.information =
-      JSON.parse(localStorage.getItem("information")) ??
-      new Information(0, "", "", "", [], [], [], []);
+      JSON.parse(localStorage.getItem('information')) ??
+      new Information(0, '', '', '', [], [], [], []);
     GlobalVars.formations =
-      JSON.parse(localStorage.getItem("formations")) ?? [];
+      JSON.parse(localStorage.getItem('formations')) ?? [];
   }
 
   get information() {
@@ -31,7 +31,7 @@ export class CvComponent implements OnInit {
 
   transform() {
     return this.sanitizer.bypassSecurityTrustResourceUrl(
-      "data:image/png;base64, " + this.information.img
+      'data:image/png;base64, ' + this.information.img
     );
   }
 }

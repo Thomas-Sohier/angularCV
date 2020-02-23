@@ -1,6 +1,6 @@
-import { CV } from "./component/cv/cv";
-import { Information } from "./component/infos/information";
-import { Formation } from "./component/formation/formation";
+import { CV } from './component/cv/cv';
+import { Information } from './component/infos/information';
+import { Formation } from './component/formation/formation';
 import { Experience } from './component/experience/experience';
 import { KeyValueDiffer, KeyValueDiffers } from '@angular/core';
 
@@ -9,7 +9,16 @@ import { KeyValueDiffer, KeyValueDiffers } from '@angular/core';
 //
 export let selectPersonne = 0;
 export class GlobalVars {
-  public static information: Information = new Information(0, '', '', '', [], [], [], []);
+  public static information: Information = new Information(
+    0,
+    '',
+    '',
+    '',
+    [],
+    [],
+    [],
+    []
+  );
   public static formations: Formation[] = new Array<Formation>();
   public static experiences: Experience[] = new Array<Experience>();
 }

@@ -1,7 +1,7 @@
-import { Experience } from "../experience/experience";
-import { Formation } from "../formation/formation";
-import { Hobbies } from "../hobbies/hobbies";
-import { Information } from "../infos/information";
+import { Experience } from '../experience/experience';
+import { Formation } from '../formation/formation';
+import { Hobbies } from '../hobbies/hobbies';
+import { Information } from '../infos/information';
 
 export interface CV {
   id: number;
