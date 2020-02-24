@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="52f451e13dd83e2fbf7a381a483fa2bd66d0d1af" datatype="html">
+        <source>Thème</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/form/form.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="81f561219a6bc0f2ab2291185ffcc5b1f28356f7" datatype="html">
+        <source>Imprimer</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/form/form.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5f19586aba912ec6eb123ec5ab609a3bcc073066" datatype="html">
+        <source>Export</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/form/form.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

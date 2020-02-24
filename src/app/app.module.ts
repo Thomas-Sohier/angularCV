@@ -26,6 +26,10 @@ import { FormExperienceComponent } from './component/form-experience/form-experi
 import { FormFormationComponent } from './component/form-formation/form-formation.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { InputFileComponent } from './component/input-file/input-file.component';
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
+
+registerLocaleData(localeFr, 'fr-FR');
 
 @NgModule({
   declarations: [
