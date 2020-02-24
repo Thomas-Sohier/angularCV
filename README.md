@@ -15,8 +15,8 @@ My code is ugly but it get the jobs done 😀
 ## Things to do next ?
 
 - [ ] Currently only in french... Do atleast English !
-- [ ] Try to make theming work with the printing. Currently i can only print with de default theme
-- [ ] Make css work while printing on firefox ? Feasible ????
+- [x] Try to make theming work with the printing. Currently i can only print with de default theme
+- [x] Make css work while printing on firefox ?
 - [ ] Lot of things i don't think about yet
 
 ## How to use it ?
