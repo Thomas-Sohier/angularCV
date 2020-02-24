@@ -1,5 +1,14 @@
 <mat-toolbar class="toolbar">
   <span>Création CV</span>
+  <div style="margin-left: auto">
+    <mat-form-field style="width: 100%;">
+      <mat-select [(value)]="currentLanguage" (selectionChange)="changeLanguage()">
+        <mat-option *ngFor="let language of languages" [value]="language.id">
+          {{language.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
 </mat-toolbar>
 <div style="height: 64px;"></div>
 <div>

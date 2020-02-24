@@ -1,7 +1,7 @@
 <mat-card style="width: 400px">
   <div style="display: flex">
-    <h1>Informations</h1>
-    <button mat-button (click)="toggle()" style="margin-left: auto">Réduire/Agrandir</button>
+    <h1>{{ 'personnalInformation' | translate }}</h1>
+    <button mat-button (click)="toggle()" style="margin-left: auto">{{ 'resize' | translate }}</button>
   </div>
   <div *ngIf="expanded == true">
     <form (ngSubmit)="onSubmit()" #infoForm="ngForm">
@@ -82,46 +82,6 @@
           </mat-list-item>
         </mat-list>
       </p>
-
-      <h3 class="subTitle">Langues</h3>
-
-      <p>
-        <mat-form-field>
-          <input matInput placeholder="Langue" [(ngModel)]="language.language" name="language" #name="ngModel">
-        </mat-form-field>
-
-        <mat-slider style="margin-left: 10%" #matslider [max]="5" [min]="0" [step]="1" [thumbLabel]="thumbLabel"
-          [tickInterval]="1" [(ngModel)]="language.level" name="level" #name="ngModel">
-        </mat-slider>
-        {{matslider.value}}
-      </p>
-
-      <div class="flex">
-        <button mat-raised-button color="accent" class="addButton" type="button" (click)="addLanguage()">Ajouter
-          langue</button>
-      </div>
-
-      <p class="flex">
-        <mat-list>
-          <!-- <h3 mat-subheader>Liste des informations</h3> -->
-          <mat-list-item *ngFor="let i of information.languages" class="matListItem">
-            <div>
-              <h4 mat-line class="title">{{i.language}}</h4>
-              <div class="sublist">
-                <p mat-line> niveau {{i.level}} -> {{i.levelString}} </p>
-              </div>
-
-            </div>
-            <div class="action">
-              <img src="assets/img/remove.svg" style="cursor: pointer" alt="supprimer" height="24px" width="24px"
-                (click)="delLanguage(i)" />
-              <img src="assets/img/edit.svg" style="cursor: pointer; margin-left: 10px" alt="editer" height="24px"
-                width="24px" (click)="editLanguage(i)" />
-            </div>
-          </mat-list-item>
-        </mat-list>
-      </p>
-
       <h3 class="subTitle">Compétences</h3>
 
       <p>
@@ -162,6 +122,46 @@
           </mat-list-item>
         </mat-list>
       </p>
+
+      <h3 class="subTitle">Langues</h3>
+
+      <p>
+        <mat-form-field>
+          <input matInput placeholder="Langue" [(ngModel)]="language.language" name="language" #name="ngModel">
+        </mat-form-field>
+
+        <mat-slider style="margin-left: 10%" #matslider [max]="5" [min]="0" [step]="1" [thumbLabel]="thumbLabel"
+          [tickInterval]="1" [(ngModel)]="language.level" name="level" #name="ngModel">
+        </mat-slider>
+        {{matslider.value}}
+      </p>
+
+      <div class="flex">
+        <button mat-raised-button color="accent" class="addButton" type="button" (click)="addLanguage()">Ajouter
+          langue</button>
+      </div>
+
+      <p class="flex">
+        <mat-list>
+          <!-- <h3 mat-subheader>Liste des informations</h3> -->
+          <mat-list-item *ngFor="let i of information.languages" class="matListItem">
+            <div>
+              <h4 mat-line class="title">{{i.language}}</h4>
+              <div class="sublist">
+                <p mat-line> niveau {{i.level}} -> {{i.levelString}} </p>
+              </div>
+
+            </div>
+            <div class="action">
+              <img src="assets/img/remove.svg" style="cursor: pointer" alt="supprimer" height="24px" width="24px"
+                (click)="delLanguage(i)" />
+              <img src="assets/img/edit.svg" style="cursor: pointer; margin-left: 10px" alt="editer" height="24px"
+                width="24px" (click)="editLanguage(i)" />
+            </div>
+          </mat-list-item>
+        </mat-list>
+      </p>
+
 
       <h3 class="subTitle">Loisirs</h3>
 

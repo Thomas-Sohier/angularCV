@@ -31,7 +31,11 @@ p {
 }
 
 .skill {
-  margin: 5px 0px;
-  border-left: solid 5px var(--secondary-default);
+  margin: 15px 0px;
+  padding-top: 10px;
   padding-left: 5px;
+}
+
+.skill:nth-child(n+2) {
+  border-top: 1px solid var(--primary-light);
 }

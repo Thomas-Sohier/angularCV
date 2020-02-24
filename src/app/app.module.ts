@@ -1,76 +1,41 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
-
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
-import { MatInputModule } from '@angular/material/input';
-import { MatListModule } from '@angular/material/list';
-import { MatSelectModule } from '@angular/material/select';
-import { MatSliderModule } from '@angular/material/slider';
+import {
+  TranslateModule,
+  TranslatePipe,
+  TranslateLoader
+} from '@ngx-translate/core';
+import { ComponentModule } from './component/component.module';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { PickerModule } from '@ctrl/ngx-emoji-mart';
-import { CvComponent } from './component/cv/cv.component';
-import { FormationComponent } from './component/formation/formation.component';
-import { ExperienceComponent } from './component/experience/experience.component';
-import { FormComponent } from './component/form/form.component';
-import { FormsModule } from '@angular/forms';
-import { InfosComponent } from './component/infos/infos.component';
-import { LanguageComponent } from './component/language/language.component';
-import { SkillsComponent } from './component/skills/skills.component';
-import { HobbiesComponent } from './component/hobbies/hobbies.component';
-import { FormInfoComponent } from './component/form-info/form-info.component';
-import { FormExperienceComponent } from './component/form-experience/form-experience.component';
-import { FormFormationComponent } from './component/form-formation/form-formation.component';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { InputFileComponent } from './component/input-file/input-file.component';
-import { registerLocaleData } from '@angular/common';
-import localeFr from '@angular/common/locales/fr';
+import { MatSelectModule } from '@angular/material/select';
 
-registerLocaleData(localeFr, 'fr-FR');
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    CvComponent,
-    FormationComponent,
-    ExperienceComponent,
-    FormComponent,
-    InfosComponent,
-    LanguageComponent,
-    SkillsComponent,
-    HobbiesComponent,
-    FormInfoComponent,
-    FormExperienceComponent,
-    FormFormationComponent,
-    InputFileComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
+    MatSelectModule,
     BrowserAnimationsModule,
+    TranslateModule.forRoot({
+      defaultLanguage: 'fr',
+      loader: {
+        provide: TranslateLoader,
+        useFactory: createTranslateLoader,
+        deps: [HttpClient]
+      }
+    }),
     MatToolbarModule,
-    MatCardModule,
-    MatInputModule,
-    MatButtonModule,
-    MatSnackBarModule,
-    MatSliderModule,
-    MatListModule,
-    FormsModule,
-    PickerModule,
-    MatSelectModule
+    ComponentModule
   ],
-  providers: [
-    MatToolbarModule,
-    MatCardModule,
-    MatInputModule,
-    MatButtonModule,
-    MatSliderModule,
-    MatListModule,
-    MatSelectModule
-  ],
+  providers: [MatToolbarModule],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

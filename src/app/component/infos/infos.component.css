@@ -31,9 +31,15 @@ p {
 }
 
 .exp {
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin: 15px 0px;
+  padding-top: 10px;
+  padding-left: 5px;
 }
+
+.exp:nth-child(n+2) {
+  border-top: 1px solid var(--primary-light);
+}
+
 
 .icon {
   color: #4d8c94;

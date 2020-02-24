@@ -1,8 +1,8 @@
 <div>
   <mat-form-field style="width: 100%;">
-    <mat-label i18n>Thème</mat-label>
-    <mat-select [(ngModel)]="currentTheme" (selectionChange)="changeTheme()">
-      <mat-option *ngFor="let theme of themes" [value]="theme">
+    <mat-label>{{'theme' | translate}}</mat-label>
+    <mat-select [(value)]="currentTheme" (selectionChange)="changeTheme()">
+      <mat-option *ngFor="let theme of themes" [value]="theme.name">
         {{theme.name}}
       </mat-option>
     </mat-select>
@@ -19,8 +19,8 @@
 </div>
 
 <div>
-  <button mat-raised-button color="accent" type='button' (click)="print()" i18n>Imprimer</button>
+  <button mat-raised-button color="accent" type='button' (click)="print()">{{'print' | translate}}</button>
   <button style="margin-left: 10px;" mat-button color="accent" type='button' download="download.json"
-    (click)="downloadJSON()" i18n>Export</button>
-  <app-input-file (file)="importJSON($event)"></app-input-file>
+    (click)="downloadJSON()">{{'save' | translate}}</button>
+  <app-input-file (file)="importJSON($event)" [label]="'chooseFile'"></app-input-file>
 </div>

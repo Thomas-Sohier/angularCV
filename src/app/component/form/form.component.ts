@@ -14,13 +14,14 @@ export class FormComponent implements OnInit {
   personnes: Personne[] = [];
   selectedPersonne: number;
   themes: Theme[] = [];
-  currentTheme: Theme = JSON.parse(localStorage.getItem('theme'));
+  currentTheme: string;
 
   constructor(private themeService: ThemeService) {}
 
   ngOnInit() {
     this.selectedPersonne = selectPersonne;
     this.themes = this.themeService.getAvailableThemes();
+    this.currentTheme = this.themeService.getActiveTheme().name;
   }
 
   downloadJSON() {
@@ -51,8 +52,8 @@ export class FormComponent implements OnInit {
   }
 
   changeTheme() {
-    console.log(this.currentTheme);
-    this.themeService.setActiveTheme(this.currentTheme);
+    const themeSelected: Theme = this.themeService.getTheme(this.currentTheme);
+    this.themeService.setActiveTheme(themeSelected);
     localStorage.setItem(
       'theme',
       JSON.stringify(this.themeService.getActiveTheme())

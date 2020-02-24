@@ -18,13 +18,13 @@ h6 {
   color: var(--foreground-font-black);
   line-height: 15px;
   margin: 1px;
+  margin-top: auto;
+  margin-bottom: auto;
   font-family: Roboto,
     "Helvetica Neue",
     sans-serif;
   font-size: 10px;
   font-weight: 900;
-  /* font-size: 10.1px;
-  font-weight: 700; */
   width: 15px;
   height: 15px;
   border: var(--secondary-default);
@@ -36,9 +36,19 @@ h6 {
 }
 
 .language {
-  margin: 5px 0px;
-  border-left: solid 5px var(--secondary-default);
-  padding-left: 5px;
+  background: var(--secondary-default);
+  border-radius: 30px;
+  padding: 5px 16px;
+  margin: 5px;
+}
+
+p {
+  color: var(--foreground-font-secondary);
+  font-family: Roboto,
+    "Helvetica Neue",
+    sans-serif;
+  font-size: 14px;
+  font-weight: 500;
 }
 
 .languageCount {
