@@ -2,7 +2,7 @@
 
 The purpose of this project is to make your own CV easily.
 
-[I want screen](#screen)
+[i want screenshots](#screen)
 
 ## Why ?
 
@@ -33,7 +33,7 @@ Then just :
 
 ```bash
 docker pull icecu8e/angularcv:latest
-docker run --rm -d -p 80:80/tcp icecu8e/angularcv:latest 
+docker run --rm -d -p 80:80/tcp icecu8e/angularcv:latest
 ```
 
 ### Build it
