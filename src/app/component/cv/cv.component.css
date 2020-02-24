@@ -32,8 +32,7 @@
   text-align: center;
   margin-left: auto;
   margin-right: auto;
-  left: 0px;
-  right: 595px;
+  left: 40%;
   z-index: 200;
 }
 
@@ -140,6 +139,7 @@ p {
 }
 
 .infoPerso {
+  position: relative;
   width: 400px;
   background: var(--primary-default);
 }
