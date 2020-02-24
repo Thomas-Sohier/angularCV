@@ -38,9 +38,12 @@
         </mat-form-field>
       </p>
 
-      <p>
-        <input type="file" name="file" id="file" (change)="handleFileSelect($event)" />
-      </p>
+      <div style="display: flex;">
+        <h4>Logo entreprise</h4>
+        <p style="margin-bottom: 30px; margin-left: auto;">
+          <app-input-file (file)="handleFileSelect($event)"></app-input-file>
+        </p>
+      </div>
 
       <div style="display: flex">
         <button mat-raised-button color="accent" style="margin-left: auto" type="button"
@@ -50,7 +53,7 @@
       <p>
         <mat-list>
           <!-- <h3 mat-subheader>Liste des informations</h3> -->
-          <mat-list-item *ngFor="let i of experiences" style="display: flex">
+          <mat-list-item *ngFor="let i of experiences" class="matListItem">
             <div class="list">
               <div class="title" style="display: flex">
                 <img [src]="transform(i.img)" alt="" height="12" width="12" style="margin: 2px">
@@ -63,7 +66,7 @@
               </div>
 
             </div>
-            <div style="margin-left: 20px">
+            <div class="action">
               <img src="assets/img/remove.svg" style="cursor: pointer" alt="supprimer" height="24px" width="24px"
                 (click)="delExp(i)" />
               <img src="assets/img/edit.svg" style="cursor: pointer; margin-left: 10px" alt="editer" height="24px"
@@ -74,7 +77,8 @@
       </p>
 
       <div style="display: flex">
-        <button mat-raised-button style="background: #2e7d32; color: white; margin-left: auto; margin-right: auto"
+        <button mat-raised-button
+          style="background: #2e7d32; color: white; margin-left: auto; margin-right: auto; margin-top: 16px;"
           type="submit">Enregistrer</button>
       </div>
     </form>

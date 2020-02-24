@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Information } from '../infos/information';
 import { DomSanitizer } from '@angular/platform-browser';
 import { GlobalVars } from '../../global';
+import { ThemeService } from 'src/app/theme/theme.service';
+import { Theme } from 'src/app/theme/theme';
 
 @Component({
   selector: 'app-cv',
@@ -9,7 +11,10 @@ import { GlobalVars } from '../../global';
   styleUrls: ['./cv.component.css']
 })
 export class CvComponent implements OnInit {
-  constructor(private sanitizer: DomSanitizer) {}
+  constructor(
+    private sanitizer: DomSanitizer,
+    private themeService: ThemeService
+  ) {}
 
   ngOnInit() {
     GlobalVars.experiences =
@@ -19,6 +24,10 @@ export class CvComponent implements OnInit {
       new Information(0, '', '', '', [], [], [], []);
     GlobalVars.formations =
       JSON.parse(localStorage.getItem('formations')) ?? [];
+    this.themeService.setActiveTheme(
+      JSON.parse(localStorage.getItem('theme')) ??
+        this.themeService.getActiveTheme()
+    );
   }
 
   get information() {

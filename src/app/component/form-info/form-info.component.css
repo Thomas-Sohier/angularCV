@@ -40,11 +40,12 @@ p {
   width: 100%;
 }
 
-.list {
-  box-shadow: 1px 1px 5px 3px #c6c5c5;
-  /* max-width: 250px;
-  min-width: 100px; */
-  width: 250px;
+.mat-list-base {
+  width: 100%;
+}
+
+.subTitle {
+  margin-top: 12px;
 }
 
 .sublist {
@@ -52,8 +53,6 @@ p {
 }
 
 .title {
-  background-color: black;
-  color: white;
   padding: 4px;
 }
 
@@ -80,4 +79,30 @@ p {
 
 .submitDiv {
   margin-top: 20px
+}
+
+.matListItem {
+  display: flex;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.action {
+  overflow: hidden;
+  position: absolute;
+  visibility: hidden;
+  right: -100px;
+  transition: 0.5s;
+}
+
+.matListItem:hover .action {
+  display: initial;
+  visibility: visible;
+  transition: 0.5s;
+  right: 0px;
+}
+
+.matListItem:nth-child(n+2) {
+  border-top: 1px solid #C3C3C3;
 }

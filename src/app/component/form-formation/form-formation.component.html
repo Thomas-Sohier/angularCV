@@ -40,7 +40,7 @@
 
       <p>
         <mat-list>
-          <mat-list-item *ngFor="let i of formations" style="display: flex">
+          <mat-list-item *ngFor="let i of formations" class="matListItem">
             <div class="list">
               <h4 mat-line class="title">{{i.title}}</h4>
               <div class="sublist">
@@ -49,7 +49,7 @@
                 <p mat-line> {{i.description}} </p>
               </div>
             </div>
-            <div style="margin-left: 20px">
+            <div class="action">
               <img src="assets/img/remove.svg" style="cursor: pointer" alt="supprimer" height="24px" width="24px"
                 (click)="delFormation(i)" />
               <img src="assets/img/edit.svg" style="cursor: pointer; margin-left: 10px" alt="editer" height="24px"
@@ -60,7 +60,8 @@
       </p>
 
       <div style="display: flex">
-        <button mat-raised-button style="background: #2e7d32; color: white; margin-left: auto; margin-right: auto"
+        <button mat-raised-button
+          style="background: #2e7d32; color: white; margin-left: auto; margin-right: auto; margin-top: 16px;"
           type="submit">Enregistrer</button>
       </div>
     </form>

@@ -24,12 +24,15 @@
         </mat-form-field>
       </p>
 
-      <p style="margin-bottom: 30px">
-        <input type="file" name="file" id="file" (change)="handleFileSelect($event)" />
-      </p>
+      <div style="display: flex;">
+        <h4>Photo</h4>
+        <p style="margin-bottom: 30px; margin-left: auto;">
+          <app-input-file (file)="handleFileSelect($event)"></app-input-file>
+        </p>
+      </div>
 
 
-      <h3>Infos personnelles</h3>
+      <h3 class="subTitle">Infos personnelles</h3>
 
       <div style="display: flex; width: 100%">
         <p>
@@ -58,8 +61,8 @@
 
       <p class="flex">
         <mat-list>
-          <mat-list-item *ngFor="let i of information.infos" style="display: flex">
-            <div class="list">
+          <mat-list-item *ngFor="let i of information.infos" class="matListItem">
+            <div>
               <div class="title" style="display: flex">
                 <p>{{i.emoji}}</p>
                 <h4 mat-line class="title">{{i.title}}</h4>
@@ -70,7 +73,7 @@
               </div>
 
             </div>
-            <div style="margin-left: 20px">
+            <div class="action">
               <img src="assets/img/remove.svg" style="cursor: pointer" alt="supprimer" height="24px" width="24px"
                 (click)="delInfos(i)" />
               <img src="assets/img/edit.svg" style="cursor: pointer; margin-left: 10px" alt="editer" height="24px"
@@ -80,7 +83,7 @@
         </mat-list>
       </p>
 
-      <h3>Langues</h3>
+      <h3 class="subTitle">Langues</h3>
 
       <p>
         <mat-form-field>
@@ -101,15 +104,15 @@
       <p class="flex">
         <mat-list>
           <!-- <h3 mat-subheader>Liste des informations</h3> -->
-          <mat-list-item *ngFor="let i of information.languages" style="display: flex">
-            <div class="list">
+          <mat-list-item *ngFor="let i of information.languages" class="matListItem">
+            <div>
               <h4 mat-line class="title">{{i.language}}</h4>
               <div class="sublist">
                 <p mat-line> niveau {{i.level}} -> {{i.levelString}} </p>
               </div>
 
             </div>
-            <div style="margin-left: 20px">
+            <div class="action">
               <img src="assets/img/remove.svg" style="cursor: pointer" alt="supprimer" height="24px" width="24px"
                 (click)="delLanguage(i)" />
               <img src="assets/img/edit.svg" style="cursor: pointer; margin-left: 10px" alt="editer" height="24px"
@@ -119,7 +122,7 @@
         </mat-list>
       </p>
 
-      <h3>Compétences</h3>
+      <h3 class="subTitle">Compétences</h3>
 
       <p>
         <mat-form-field class="input-full-width">
@@ -142,15 +145,15 @@
       <p class="flex">
         <mat-list>
           <!-- <h3 mat-subheader>Liste des informations</h3> -->
-          <mat-list-item *ngFor="let i of information.skills" style="display: flex">
-            <div class="list">
+          <mat-list-item *ngFor="let i of information.skills" class="matListItem">
+            <div>
               <h4 mat-line class="title">{{i.title}}</h4>
               <div class="sublist">
                 <p mat-line> {{i.text}}</p>
               </div>
 
             </div>
-            <div style="margin-left: 20px">
+            <div class="action">
               <img src="assets/img/remove.svg" style="cursor: pointer" alt="supprimer" height="24px" width="24px"
                 (click)="delSkill(i)" />
               <img src="assets/img/edit.svg" style="cursor: pointer; margin-left: 10px" alt="editer" height="24px"
@@ -160,7 +163,7 @@
         </mat-list>
       </p>
 
-      <h3>Loisirs</h3>
+      <h3 class="subTitle">Loisirs</h3>
 
       <p>
         <mat-form-field class="input-full-width">
@@ -176,11 +179,11 @@
       <p class="flex">
         <mat-list>
           <!-- <h3 mat-subheader>Liste des informations</h3> -->
-          <mat-list-item *ngFor="let i of information.hobbies" style="display: flex">
-            <div class="list">
+          <mat-list-item *ngFor="let i of information.hobbies" class="matListItem">
+            <div>
               <h4 mat-line class="title">{{i.text}}</h4>
             </div>
-            <div style="margin-left: 20px">
+            <div class="action">
               <img src="assets/img/remove.svg" style="cursor: pointer" alt="supprimer" height="24px" width="24px"
                 (click)="delHobbie(i)" />
               <img src="assets/img/edit.svg" style="cursor: pointer; margin-left: 10px" alt="editer" height="24px"

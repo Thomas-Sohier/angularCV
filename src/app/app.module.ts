@@ -25,6 +25,7 @@ import { FormInfoComponent } from './component/form-info/form-info.component';
 import { FormExperienceComponent } from './component/form-experience/form-experience.component';
 import { FormFormationComponent } from './component/form-formation/form-formation.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { InputFileComponent } from './component/input-file/input-file.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     HobbiesComponent,
     FormInfoComponent,
     FormExperienceComponent,
-    FormFormationComponent
+    FormFormationComponent,
+    InputFileComponent
   ],
   imports: [
     BrowserModule,

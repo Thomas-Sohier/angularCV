@@ -1,11 +1,9 @@
-import { Component, OnInit, Renderer2, ElementRef } from '@angular/core';
-import * as PHE from 'print-html-element';
+import { Component, OnInit } from '@angular/core';
 import { Personne } from '../personne/personne';
 import { selectPersonne, GlobalVars } from '../../global';
 import { ThemeService } from 'src/app/theme/theme.service';
 import { Theme } from 'src/app/theme/theme';
 import { saveAs } from 'file-saver';
-import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-form',
@@ -16,8 +14,9 @@ export class FormComponent implements OnInit {
   personnes: Personne[] = [];
   selectedPersonne: number;
   themes: Theme[] = [];
-  currentTheme: Theme;
-  constructor(private themeService: ThemeService, public el: ElementRef) {}
+  currentTheme: Theme = JSON.parse(localStorage.getItem('theme'));
+
+  constructor(private themeService: ThemeService) {}
 
   ngOnInit() {
     this.selectedPersonne = selectPersonne;
@@ -46,23 +45,27 @@ export class FormComponent implements OnInit {
 
       this.saveGlobalVars();
     };
-    reader.onerror = evt => {
+    reader.onerror = () => {
       console.error('Failed to read this file');
     };
   }
 
   changeTheme() {
+    console.log(this.currentTheme);
     this.themeService.setActiveTheme(this.currentTheme);
+    localStorage.setItem(
+      'theme',
+      JSON.stringify(this.themeService.getActiveTheme())
+    );
   }
-
-  // print() {
-  //   PHE.printElement(document.getElementById('cv'));
-  // }
-
   saveGlobalVars() {
     localStorage.setItem('experiences', JSON.stringify(GlobalVars.experiences));
     localStorage.setItem('formations', JSON.stringify(GlobalVars.formations));
     localStorage.setItem('information', JSON.stringify(GlobalVars.information));
+    localStorage.setItem(
+      'theme',
+      JSON.stringify(this.themeService.getActiveTheme())
+    );
   }
 
   print() {

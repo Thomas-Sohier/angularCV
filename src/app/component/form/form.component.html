@@ -1,14 +1,14 @@
 <div>
   <mat-form-field style="width: 100%;">
     <mat-label>Thème</mat-label>
-    <mat-select [(value)]="currentTheme" (selectionChange)="changeTheme()">
+    <mat-select [(ngModel)]="currentTheme" (selectionChange)="changeTheme()">
       <mat-option *ngFor="let theme of themes" [value]="theme">
         {{theme.name}}
       </mat-option>
     </mat-select>
   </mat-form-field>
 </div>
-<div style="margin-bottom: 10px">
+<div style=" margin-bottom: 10px">
   <app-form-info></app-form-info>
 </div>
 <div style="margin-bottom: 10px">
@@ -22,6 +22,5 @@
   <button mat-raised-button color="accent" type='button' (click)="print()">Imprimer</button>
   <button style="margin-left: 10px;" mat-button color="accent" type='button' download="download.json"
     (click)="downloadJSON()">Export</button>
-  <input style="margin-top: 20px;" id="file" type="file" class="inputfile" (change)="importJSON($event.target.files)">
-  <label for="file">Choisir un fichier</label>
+  <app-input-file (file)="importJSON($event)"></app-input-file>
 </div>

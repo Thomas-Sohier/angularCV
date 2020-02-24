@@ -48,7 +48,7 @@ export class FormInfoComponent implements OnInit {
   }
 
   handleFileSelect(evt) {
-    const files = evt.target.files;
+    const files = evt;
     const file = files[0];
 
     if (files && file) {

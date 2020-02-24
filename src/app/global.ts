@@ -3,24 +3,17 @@ import { Information } from './component/infos/information';
 import { Formation } from './component/formation/formation';
 import { Experience } from './component/experience/experience';
 import { KeyValueDiffer, KeyValueDiffers } from '@angular/core';
+import { Theme } from './theme/theme';
 
 //
 // ===== File globals.ts
 //
 export let selectPersonne = 0;
 export class GlobalVars {
-  public static information: Information = new Information(
-    0,
-    '',
-    '',
-    '',
-    [],
-    [],
-    [],
-    []
-  );
+  public static information: Information = new Information(0,'','','',[],[],[],[]);
   public static formations: Formation[] = new Array<Formation>();
   public static experiences: Experience[] = new Array<Experience>();
+  public static theme: Theme;
 }
 
 // const dbconfig = {
