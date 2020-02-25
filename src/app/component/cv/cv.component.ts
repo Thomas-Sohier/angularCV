@@ -11,6 +11,7 @@ import { Theme } from 'src/app/theme/theme';
   styleUrls: ['./cv.component.css']
 })
 export class CvComponent implements OnInit {
+  scale: number = 0.5;
   constructor(
     private sanitizer: DomSanitizer,
     private themeService: ThemeService
@@ -36,6 +37,10 @@ export class CvComponent implements OnInit {
 
   get formations() {
     return GlobalVars.formations;
+  }
+
+  get matSliderValue() {
+    return GlobalVars.matSliderValue;
   }
 
   transform() {

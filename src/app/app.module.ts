@@ -12,6 +12,7 @@ import {
 import { ComponentModule } from './component/component.module';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSelectModule } from '@angular/material/select';
+import { MatSliderModule } from '@angular/material/slider';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -23,6 +24,7 @@ export function createTranslateLoader(http: HttpClient) {
     BrowserModule,
     HttpClientModule,
     MatSelectModule,
+    MatSliderModule,
     BrowserAnimationsModule,
     TranslateModule.forRoot({
       defaultLanguage: 'fr',

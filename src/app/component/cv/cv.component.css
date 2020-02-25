@@ -12,6 +12,11 @@
 }
 
 .cv {
+  scale: 0.5;
+  transform-origin: left top;
+}
+
+.cv {
   size: A4;
   margin: 0;
   width: 252mm;

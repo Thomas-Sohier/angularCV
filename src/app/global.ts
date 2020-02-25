@@ -14,6 +14,7 @@ export class GlobalVars {
   public static formations: Formation[] = new Array<Formation>();
   public static experiences: Experience[] = new Array<Experience>();
   public static theme: Theme;
+  public static matSliderValue: number;
 }
 
 // const dbconfig = {

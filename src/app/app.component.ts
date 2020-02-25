@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { GlobalVars } from './global';
 
 @Component({
   selector: 'app-root',
@@ -27,5 +28,9 @@ export class AppComponent {
     this.translate.use(this.currentLanguage).subscribe(response => {
       console.log(response);
     });
+  }
+
+  getSliderTickInterval(event: any) {
+    GlobalVars.matSliderValue = event.value;
   }
 }

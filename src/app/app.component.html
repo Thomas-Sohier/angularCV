@@ -1,7 +1,13 @@
 <mat-toolbar class="toolbar">
   <span>Création CV</span>
+  <div class="zoom">
+    <h4 class="zoomTitle">Zoom</h4>
+    <mat-slider #matslider [max]="1" [min]="0.5" [step]="0.01" [thumbLabel]=" thumbLabel"
+      (input)="getSliderTickInterval($event)" class="zoomSlider" [color]="primary">
+    </mat-slider>
+  </div>
   <div style="margin-left: auto">
-    <mat-form-field style="width: 100%;">
+    <mat-form-field>
       <mat-select [(value)]="currentLanguage" (selectionChange)="changeLanguage()">
         <mat-option *ngFor="let language of languages" [value]="language.id">
           {{language.name}}
@@ -13,7 +19,7 @@
 <div style="height: 64px;"></div>
 <div>
   <div style="display: flex">
-    <app-cv style="margin: 1%;"></app-cv>
     <app-form style="margin: 1%"></app-form>
+    <app-cv style="margin: 1%;"></app-cv>
   </div>
 </div>
