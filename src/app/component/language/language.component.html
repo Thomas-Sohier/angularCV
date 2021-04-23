@@ -1,9 +1,10 @@
 <div *ngFor="let i of languages">
   <div style="display: flex">
     <p class="language">{{i.language}}</p>
+    <p *ngIf="i.certification && i.certificationScore" class="language certification">{{i.certification}} : {{i.certificationScore}}</p>
     <div class="languageCount">
       <span class="level">{{i.levelString}}</span>
-      <span class="level" *ngFor="let i of counter(i.level - 1)"></span>
+      <span class="level" *ngFor="let i of counter(i.level)"></span>
       <span class="level empty" *ngFor="let i of counter(5 - i.level)"></span>
     </div>
   </div>

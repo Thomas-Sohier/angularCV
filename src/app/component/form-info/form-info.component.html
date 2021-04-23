@@ -147,6 +147,19 @@
         {{matslider.value}}
       </p>
 
+      <div style="display: flex; width: 100%">
+        <p>
+          <mat-form-field style="margin-right: 20px">
+            <input matInput placeholder="Certification" [(ngModel)]="language.certification" name="certification" #name="ngModel">
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field>
+            <input matInput placeholder="Score" [(ngModel)]="language.certificationScore" name="certificationScore" #name="ngModel">
+          </mat-form-field>
+        </p>
+      </div>
+
       <div class="flex">
         <button mat-raised-button color="accent" class="addButton" type="button" (click)="addLanguage()">Ajouter
           langue</button>
@@ -160,6 +173,7 @@
               <h4 mat-line class="title">{{i.language}}</h4>
               <div class="sublist">
                 <p mat-line> niveau {{i.level}} -> {{i.levelString}} </p>
+                <p mat-line> Certification {{i.certification}} : {{i.certificationScore}} </p>
               </div>
 
             </div>

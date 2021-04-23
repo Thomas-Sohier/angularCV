@@ -29,6 +29,12 @@
   position: relative;
 }
 
+.top-part {
+  margin: 10px;
+  height: 94%;
+  overflow: hidden;
+}
+
 .wrapper {
   resize: both;
   position: relative;
