@@ -7,6 +7,7 @@ import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 })
 export class InputFileComponent implements OnInit {
   @Input() label = 'Choisir un fichier';
+  @Input() id = 'default';
   @Output() file = new EventEmitter<any>();
 
   constructor() {}

@@ -45,6 +45,13 @@ export class FormInfoComponent implements OnInit {
     );
   }
 
+  // Call this method in the image source, it will sanitize it.
+  transformImg(img: string) {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(
+      'data:image/png;base64, ' + img
+    );
+  }
+
   handleFileSelect(evt) {
     const files = evt;
     const file = files[0];

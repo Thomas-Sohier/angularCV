@@ -1,2 +1,2 @@
-<input style="margin-top: 20px;" id="file" type="file" class="inputfile" (change)="outputFile($event.target.files)">
-<label for="file">{{label | translate}}</label>
+<input id="file-{{id}}"style="margin-top: 20px;"  type="file" class="inputfile" (change)="outputFile($event.target.files)">
+<label for="file-{{id}}">{{label | translate}}</label>

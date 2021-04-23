@@ -74,6 +74,8 @@ export class FormComponent implements OnInit {
     const innerContents = html.querySelector('#cv').parentElement.innerHTML;
     html.querySelector('body').innerHTML = innerContents;
     const popupWinindow = window.open('', '_blank', '');
+    let node = html.querySelector('html').querySelector('#cv') as HTMLElement;
+    node.style.transform = ('scale(1)')
     popupWinindow.document.write(html.querySelector('html').outerHTML);
     popupWinindow.focus();
     popupWinindow.print();
