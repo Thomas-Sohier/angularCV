@@ -6,17 +6,22 @@ h4,
 h5,
 h6 {
   color: var(--foreground-default);
-  ;
 }
 
 h4 {
   margin-block-end: 0;
   margin-block-start: 0;
+  font-size: 18px;
+  font-family: 'Oswald';
+  font-weight: 500;
 }
 
 h3 {
   margin-block-end: 0;
   margin-block-start: 0;
+  font-size: 22px;
+  font-family: 'Oswald';
+  font-weight: 500;
 }
 
 h2 {
@@ -28,10 +33,12 @@ h2 {
 p {
   margin-block-end: 0;
   margin-block-start: 0;
+  font-family: 'Open Sans';
+  font-size: 14px;
 }
 
 .exp {
-  margin: 15px 0px;
+  margin: 8px 0px;
   padding-top: 10px;
   padding-left: 5px;
 }
@@ -42,6 +49,30 @@ p {
 
 
 .icon {
+  font-size: 20px;
   color: #4d8c94;
   margin-right: 10px
+}
+
+.icon.small {
+  height: 24px;
+  width: 24px;
+}
+
+.logo {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  margin-top: 10px;
+  margin-right: 20px;
+  margin-bottom: 10px;
+  border-radius: 50%;
+  border: black;
+  border-width: thin;
+  /* border-style: solid; */
+  box-shadow: 0px 0px 5px 0px #8b8989;
+}
+
+.center-flex {
+  align-self: center;
 }

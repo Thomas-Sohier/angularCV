@@ -15,7 +15,7 @@ h6 {
 }
 
 .level {
-  color: var(--foreground-font-black);
+  color: var(--foreground-font-secondary);
   line-height: 15px;
   margin: 1px;
   margin-top: auto;
@@ -58,23 +58,25 @@ p {
   font-size: 18px
 }
 
+
 h4 {
   margin-block-end: 0;
   margin-block-start: 0;
+  font-size: 18px;
+  font-family: 'Oswald';
+  font-weight: 500;
 }
 
 h3 {
   margin-block-end: 0;
   margin-block-start: 0;
+  font-size: 22px;
+  font-family: 'Oswald';
+  font-weight: 500;
 }
 
 h2 {
   color: #404040;
   font-family: monospace;
   font-size: 24px;
-}
-
-p {
-  margin-block-end: 0;
-  margin-block-start: 0;
 }

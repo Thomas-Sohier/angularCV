@@ -16,8 +16,6 @@ export class FormInfoComponent implements OnInit {
   submitted = false;
   selectedIndex = null;
   base64textString = '';
-  file = '';
-
   // Infos
   infos = new Infos('', '');
   // Languages
@@ -58,10 +56,28 @@ export class FormInfoComponent implements OnInit {
     }
   }
 
+  handleFileSelectLogoInfo(evt) {
+    const files = evt;
+    const file = files[0];
+
+    if (files && file) {
+      const reader = new FileReader();
+      reader.onload = this._handleReaderLoadedLogo.bind(this);
+      reader.readAsBinaryString(file);
+    }
+  }
+
   _handleReaderLoaded(readerEvt) {
     const binaryString = readerEvt.target.result;
     this.base64textString = btoa(binaryString);
     this.information.img = this.base64textString;
+    // console.log(btoa(binaryString));
+  }
+
+  _handleReaderLoadedLogo(readerEvt) {
+    const binaryString = readerEvt.target.result;
+    this.base64textString = btoa(binaryString);
+    this.infos.image = this.base64textString;
     // console.log(btoa(binaryString));
   }
 

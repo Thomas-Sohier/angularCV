@@ -1,14 +1,19 @@
 <div *ngFor="let i of infos" class="exp">
-  <div *ngIf="i.emoji != null">
+  <div *ngIf="i.emoji || i.image">
     <div style="display: flex">
-      <span class="icon">{{i.emoji}}</span>
+      <div *ngIf="i.emoji" class="center-flex">
+        <span class="icon">{{i.emoji}}</span>
+      </div>
+      <div *ngIf="i.image" class="center-flex">
+        <img [src]="transform(i.image)" class="icon small" alt="">
+      </div>
       <div>
         <h4>{{i.title}}</h4>
         <p>{{i.text}}</p>
       </div>
     </div>
   </div>
-  <div *ngIf="i.emoji == null" style="margin-left: 30px">
+  <div *ngIf="i.emoji == null && i.image == null" style="margin-left: 30px">
     <div style="display: flex">
       <!-- <span class="icon">{{i.emoji}}</span> -->
       <div>
