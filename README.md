@@ -23,7 +23,7 @@ My code is ugly but it get the jobs done 😀
 
 ### Live demo
 
-You can try it [live](https://elegant-swanson-7243d9.netlify.com) thanks to Netlify !!
+You can try it [live](https://angularcv.netlify.app/) thanks to Netlify !!
 
 ### Docker
 
