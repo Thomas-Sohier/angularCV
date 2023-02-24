@@ -30,7 +30,7 @@
     "json-server": "^0.16.1",
     "print-html-element": "^0.5.1",
     "rxjs": "~6.6.7",
-    "sequelize": "^5.21.5",
+    "sequelize": "^6.29.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
   },
